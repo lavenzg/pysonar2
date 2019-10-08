@@ -36,7 +36,8 @@ fun main(args: Array<String>) {
             if (it.kind != Binding.Kind.PARAMETER && it.kind != Binding.Kind.SCOPE &&
                     it.kind != Binding.Kind.VARIABLE && it.kind != Binding.Kind.FUNCTION)
                 return@forEach
-            out.write(it.node.toString() + '|' + it.type.toString())
+            val nodeStr = "(node:${it.node.file}:${it.node.name}:${it.node.start}:${it.node.end})"
+            out.write(nodeStr + '|' + it.type.toString())
             out.newLine()
         }
     }
